@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "GalleryPhoto": {
+      "title": "GalleryPhoto",
+      "description": "Temple gallery photo item uploaded by administrators",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "category": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "caption": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "imageUrl": {
+          "type": "string",
+          "maxLength": 5000000
+        },
+        "capturedDate": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "uploadedBy": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "uploadedByEmail": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "createdAt": {
+          "type": "string",
+          "maxLength": 50
+        }
+      },
+      "required": ["title", "category", "imageUrl", "uploadedBy"]
+    },
+    "TempleAnnouncement": {
+      "title": "TempleAnnouncement",
+      "description": "Time-sensitive announcements and updates on events or changes in temple hours",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "content": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "category": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "isUrgent": {
+          "type": "boolean"
+        },
+        "validDate": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "postedDate": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "author": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "createdAt": {
+          "type": "string",
+          "maxLength": 50
+        }
+      },
+      "required": ["title", "content", "category"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Temple administrator record",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "role": {
+          "type": "string",
+          "maxLength": 50
+        }
+      },
+      "required": ["uid", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/gallery/{photoId}": {
+      "schema": {
+        "$ref": "#/entities/GalleryPhoto"
+      },
+      "description": "Public temple gallery photos"
+    },
+    "/announcements/{announcementId}": {
+      "schema": {
+        "$ref": "#/entities/TempleAnnouncement"
+      },
+      "description": "Latest temple announcements and time-sensitive updates"
+    },
+    "/admins/{adminId}": {
+      "schema": {
+        "$ref": "#/entities/Admin"
+      },
+      "description": "Authorized temple admin users"
+    }
+  }
+}

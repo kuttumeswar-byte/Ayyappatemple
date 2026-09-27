@@ -1,0 +1,6 @@
+{
+  "name": "Sri Ayyappa Swamy Temple",
+  "description": "Sacred portal for Sri Ayyappa Swamy Temple featuring daily darshan timings, pooja seva bookings, holy 18 steps heritage, festival schedules, and Annadanam donations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
